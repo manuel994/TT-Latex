@@ -1,0 +1,54 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU12}{Terminar tarea}{
+		Permite a un colaborador dar por concluida una tarea asignada.
+	}
+		\UCitem{Actor}{\hyperlink{Colaborador.}{Colaborador.}}
+		\UCitem{Propósito}{Dar por concluida una tarea asignada.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Usuario: lo obtiene el sistema
+		\item Proyecto: lo obtiene el sistema
+		\item Tarea iniciada: lo obtiene el sistema
+		\item Entregable: lo ingresa el colaborador
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Tarea terminada: lo genera el sistema  
+}
+		\UCitem{Destino}{Tareas.}
+		\UCitem{Precondiciones}{Tener una cuenta creada, tener una sesión iniciada, estar participando como colaborador en un proyecto, tener una tarea asignada y tener una tarea iniciada.
+}
+		\UCitem{Postcondiciones}{La tarea pasa a estado de terminada
+ }
+		\UCitem{Errores}{El archivo del entregable no es válido}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+      \UCpaso  Muestra la pantalla principal.
+		\UCpaso[\UCactor]Da click en terminar tarea.
+      \UCpaso  Muestra la pantalla de terminar tarea. \label{terminar}
+		\UCpaso[\UCactor]Adjunta el entregable de la tarea.
+		\UCpaso[\UCactor]Da click en aceptar.
+      \UCpaso  Verifica que el entregable sea un archivo válido \Trayref{A}
+      \UCpaso  Muestra la pantalla de tareas.
+	\end{UCtrayectoria}
+    
+    %--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor ingresó un archivo no valido}
+			\UCpaso Muestra mensaje de que el archivo ingresado es no valido
+			\UCpaso Continua en el paso \ref{terminar} del \UCref{CU12}.
+		\end{UCtrayectoriaA}
+
+		
+%-------------------------------------- TERMINA descripción del caso de uso.
+

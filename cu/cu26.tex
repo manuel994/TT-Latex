@@ -1,0 +1,21 @@
+%====================================================================================
+\begin{UseCase}{CU26}{Remover relación de tarea}{
+		Permite al Lider de proyecto remover la reación de tareas.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{permitir al lider de proyecto remover la reación de tareas.}
+		\UCitem{Entradas}{Ninguna}
+		\UCitem{Salidas}{relacion entre tareas removida.}
+		\UCitem{Destino}{Pantalla de relacion de tareas.}
+		\UCitem{Precondiciones}{tener relaciones registradas.}
+		\UCitem{Postcondiciones}{relacion removida.}
+		\UCitem{Errores}{Ninguna}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_remove_circle_black_18dp.png}.
+        \UCpaso [\UCsist] removera la relación seleccionada.
+	\end{UCtrayectoria}
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

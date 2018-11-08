@@ -1,0 +1,39 @@
+%====================================================================================
+\begin{UseCase}{CU22}{Editar tareas}{
+		Permite al Lider de proyecto modificar los paramtros de la tarea seleccionad para editar.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{Permite al Lider de proyecto modificar los paramtros de la tarea seleccionad para editar.}
+		\UCitem{Entradas}{\begin{itemize}
+			\item Nombre: se ingresa desde el teclado.
+			\item Tipo de duración: se presiona alguno de los radios.
+			\item Fecha de inicio: se ingresa desde teclado.
+			\item Fecha de término: se ingresa desde teclado.
+			\item Duracion en dias: se ingresa desde teclado
+			\item Descripción: se ingresa desde teclado.
+		\end{itemize}}
+		\UCitem{Salidas}{Tarea: tarea con parametros modificados}
+		\UCitem{Destino}{Pantalla de gestión de tareas}
+		\UCitem{Precondiciones}{Que la tarea no este finalizada}
+		\UCitem{Postcondiciones}{Tarea modificada}
+		\UCitem{Errores}{\begin{itemize}
+			\item La fecha de inicio no puede ser mayor a la fecha de término.
+			\item Campos obligatorios.	
+		\end{itemize}}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_create_black_18dp.png}
+        \UCpaso [\UCsist] abre el cuadro de dialogo \hyperref[fig:IU22]{IU22 Editar tarea}.
+        \UCpaso [\UCactor] puede agregar la relacion entre tareas a traves del icono \includegraphics[height=10pt]{./images/iconos/ic_add_circle_black_18dp.png} y puede eliminar la relacion entre tareas presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_remove_circle_black_18dp.png} \label{item:cu21Item1}       
+        
+	\end{UCtrayectoria}
+%-------------------------------------------------
+\subsection{Puntos de extensión del caso de uso}
+\UCExtenssionPoint{El lider de proyecto desea relacionar las tareas presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_add_circle_black_18dp.png}}{Continua en el paso \ref{item:cu21Item1} del \UCref{CU21}.}{\UCref{CU25}{ Registrar relacion de tarea}}
+
+\UCExtenssionPoint{El lider de proyecto desea eliminar la relacion entre tareas presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_remove_circle_black_18dp.png}}{Continua en el paso \ref{item:cu21Item1} del \UCref{CU21}.}{\UCref{CU26}{ Remover relación de tarea}}
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

@@ -1,0 +1,25 @@
+%====================================================================================
+\begin{UseCase}{CU23}{Visualizar datos de la tarea}{
+		Permite al Lider de proyecto visualizar los datos generales de la tarea.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{Permite al Lider de proyecto visualizar los datos generales de la tarea.}
+		\UCitem{Entradas}{Ninguna}
+		\UCitem{Salidas}{Nnguna}
+		\UCitem{Destino}{Pantalla de gestión de tareas}
+		\UCitem{Precondiciones}{Ninguna}
+		\UCitem{Postcondiciones}{Ninguna}
+		\UCitem{Errores}{}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_visibility_black_18dp.png}
+        \UCpaso [\UCsist] accede a la pantalla \hyperref[fig:IU23]{IU23 Visualizar datos de la tarea}. \Trayref{A}
+	\end{UCtrayectoria}
+%-------------------------------------------------
+\begin{UCtrayectoriaA}{A}{ El actor presiona el boton 'regresar'}
+			\UCpaso [\UCsist] accede a la pantalla \hyperref[fig:IU20]{IU20 Configuración de tareas}.
+		\end{UCtrayectoriaA}		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

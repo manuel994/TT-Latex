@@ -1,0 +1,26 @@
+%====================================================================================
+\begin{UseCase}{CU24}{Eliminar tarea}{
+		Permite al Lider de proyecto eliminar la tarea que seleccione.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{Permite al Lider de proyecto eliminar la tarea que seleccione.}
+		\UCitem{Entradas}{Ninguna}
+		\UCitem{Salidas}{Nnguna}
+		\UCitem{Destino}{Pantalla de gestión de tareas}
+		\UCitem{Precondiciones}{no se encuntre finalizada a tarea seleccionada}
+		\UCitem{Postcondiciones}{tarea eliminada}
+		\UCitem{Errores}{}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_delete_black_18dp.png}
+        \UCpaso [\UCsist] abre el cuadro de dialogo preguntando '¿Desea elimnar la tarea seleccionada'. \Trayref{A} \label{item:CU24Item1}
+	\end{UCtrayectoria}
+%-------------------------------------------------
+\begin{UCtrayectoriaA}{A}{ La tarea ya esta finalizada}
+			\UCpaso [\UCsist] Muestra el mensaje 'No se puede eliminar una materia finaizada'.
+			\UCpaso [\UCsist] Continua en el paso \ref{item:CU24Item1} del \UCref{CU24}.
+		\end{UCtrayectoriaA}		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

@@ -1,0 +1,66 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU04}{Crear tarea}{
+		Permite a un usuario la creación de una tarea en un proyecto ya creado.
+	}
+		\UCitem{Actor}{\hyperlink{Líder de proyecto}{Líder de proyecto}}
+		\UCitem{Propósito}{Definir una tarea que pertenece a un proyecto.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Proyecto: Lo obtiene el sistema
+\item Fecha de inicio: Se selecciona de un calendario
+\item Fecha de térmico: Se selecciona de un calendario
+\item Descripción: Se ingresa desde el teclado
+
+
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Tarea asignada: Lo genera el sistema.}
+		\UCitem{Destino}{Pantalla de tareas del proyectos}
+		\UCitem{Precondiciones}{Haber iniciado sesión y tener un proyecto creado
+}
+		\UCitem{Postcondiciones}{La tarea queda registrada en el sistema }
+		\UCitem{Errores}{La fecha está fuera del rango del proyecto, la fecha de término es anterior a la fecha de inicio
+}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el menú de proyectos.
+		\UCpaso[\UCactor] Da click en el ícono de tareas en la lista de proyectos.
+        \UCpaso Muestra la pantalla de listado de tareas. 
+       \UCpaso[\UCactor] Da click en el botón de crear tarea. 
+       \UCpaso  Muestra la pantalla de crear tarea. \label{tarea}
+      \UCpaso[\UCactor]  Ingresa el nombre, fecha de inicio, fecha de término y descripción.   \Trayref{A}
+      \UCpaso[\UCactor]  Verifica que la fecha de inicio sea anterior a la fecha de fin.  \Trayref{B}
+      \UCpaso[\UCactor]  Verifica que las fechas se encuentran dentro del rango del proyecto.    \Trayref{C}
+       \UCpaso  Muestra la pantalla del listado de tareas.
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no ingreso los datos requeridos}
+			\UCpaso Muestra mensaje de falta de datos requeridos
+			\UCpaso Continua en el paso \ref{tarea} del \UCref{CU04}.
+		\end{UCtrayectoriaA}
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{B}{ El actor ingresó una fecha de inicio inválida}
+			\UCpaso Muestra mensaje de que las fechas no son válidas.
+			\UCpaso Continua en el paso \ref{tarea} del \UCref{CU04}.
+		\end{UCtrayectoriaA}
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{C}{ El actor ingresó una fecha fuera del rango. }
+			\UCpaso Muestra mensaje de que las fechas no son válidas.
+			\UCpaso Continua en el paso \ref{tarea} del \UCref{CU04}.
+		\end{UCtrayectoriaA}
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

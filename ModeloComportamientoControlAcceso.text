@@ -1,0 +1,7 @@
+%=========================================================
+\chapter{Modelo de comportamiento del subsistema: Control de acceso}
+\label{cap:reqSist}
+
+En este capítulo se describen los casos de uso referentes al acceso a la aplicación, registro de cuenta y recuperacion de contraseñas.
+
+

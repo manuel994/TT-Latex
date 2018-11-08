@@ -1,0 +1,26 @@
+%====================================================================================
+\begin{UseCase}{CU31}{Ver avances commit}{
+		Permite al Lider de proyecto y al colaborador, ver los detalles del avance del commit.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}, \hyperlink{Colaborador}{Colaborador}}
+		\UCitem{Propósito}{permitir al Lider de proyecto y al colaborador, ver los detalles del avance del commit.}
+		\UCitem{Entradas}{Ninguna}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{Avances de commit}
+		\UCitem{Precondiciones}{Ninguna}
+		\UCitem{Postcondiciones}{Ninguna}
+		\UCitem{Errores}{Ninguna}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_filter_none_black_18dp.png}.
+		\UCpaso[\UCsist] accede a la pantalla \hyperref[fig:IU31]{IU31 Ver avances commit}. \label{item:cu30Item1}
+	\end{UCtrayectoria}
+
+%---------------------------------------
+	\begin{UCtrayectoriaA}{A}{ El actor presiona el botón 'regresar'}
+			\UCpaso regresa a la pantalla la pantalla \hyperref[fig:IU30]{IU30 Avance de tareas}.
+		\end{UCtrayectoriaA}
+
+%-------------------------------------- TERMINA descripción del caso de uso.

@@ -1,0 +1,61 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU02}{Login}{
+		Permite al colaborador y líder de proyecto autentificarse ante el sistema.
+	}
+		\UCitem{Actor}{\hyperlink{Colaborador, Líder de Proyecto}{Colaborador, Líder de Proyecto}}
+		\UCitem{Propósito}{El colaborador o líder de proyecto puede ingresar al sistema.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Correo: Se ingresa desde el teclado
+		\item Contraseña: Se ingresa desde el teclado
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Sesión creada: Lo genera el sistema.}
+		\UCitem{Destino}{Pantalla principal}
+		\UCitem{Precondiciones}{Ninguna}
+		\UCitem{Postcondiciones}{El usuario ingresa al sistema}
+		\UCitem{Errores}{El correo y/o contraseña no coinciden, el correo no está registrado
+}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Ingresa el correo electrónico y la contraseña.\label{Login}
+		\UCpaso[\UCactor] Solicita iniciar sesión mediante el botón ingresar.
+		\UCpaso Verifica que no se hayan omitido campos  \Trayref{A}.
+       \UCpaso  Verifica que exista una cuenta asociada al correo	\Trayref{B}.
+       \UCpaso  Verifica que la contraseña sea igual a la ingresada \Trayref{C}.
+       \UCpaso Muestra la pantalla principal
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no ingreso los datos requeridos}
+			\UCpaso Muestra mensaje de falta de datos requeridos
+			\UCpaso Continua en el paso \ref{Login} del \UCref{CU02}.
+		\end{UCtrayectoriaA}
+        
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{B}{ El actor ingreso un correo que no está asociada a ninguna cuenta}
+			\UCpaso Muestra mensaje de que el correo no está asociado a ninguna cuenta
+			\UCpaso Muestra la pantalla de inicio de sesión
+            \UCpaso[] Termina el caso de uso.
+		\end{UCtrayectoriaA}
+		        
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{C}{ El actor ingreso una contraseña que no coincide con la contraseña registrada}
+			\UCpaso Muestra mensaje de que la contraseña no es correcta
+			\UCpaso Continua en el paso \ref{Login} del \UCref{CU02}.
+		\end{UCtrayectoriaA}
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

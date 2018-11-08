@@ -1,0 +1,44 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU14}{Ver tareas}{
+		Permite al líder de proyecto ver las tareas que ha creado en sus proyectos.
+	}
+		\UCitem{Actor}{\hyperlink{Líder de Proyecto.}{Líder de Proyecto.}}
+		\UCitem{Propósito}{Controlar las tareas de mis proyectos.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Usuario: lo obtiene el sistema
+		\item Proyecto: lo obtiene el sistema
+		\item Tareas: lo obtiene el sistema
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Tareas: lo genera el sistema  
+}
+		\UCitem{Destino}{Tareas.}
+		\UCitem{Precondiciones}{Tener una cuenta creada, tener una sesión iniciada, estar participando como líder en el proyecto. 
+}
+		\UCitem{Postcondiciones}{
+ }
+		\UCitem{Errores}{}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+      \UCpaso  Muestra la pantalla principal.
+		\UCpaso[\UCactor]Da click en el menú de mis proyectos.
+      \UCpaso  Muestra mis proyectos.
+		\UCpaso[\UCactor]Da click en el ícono de configuración del proyecto.
+      \UCpaso  Muestra la pantalla de tareas.
+	\end{UCtrayectoria}
+
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

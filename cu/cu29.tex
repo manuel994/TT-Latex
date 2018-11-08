@@ -1,0 +1,25 @@
+%====================================================================================
+\begin{UseCase}{CU29}{Mis tareas}{
+		Permite al Lider de proyecto y al colaborador, ver la tareas que tinen asignadas en el proyecto que estan participando.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{permitir al Lider de proyecto y al colaborador, ver la tareas que tinen asignadas en el proyecto que estan participando.}
+		\UCitem{Entradas}{Ninguna}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{Pantalla de Mis tareas.}
+		\UCitem{Precondiciones}{tener tareas asignadas.}
+		\UCitem{Postcondiciones}{Ninguna}
+		\UCitem{Errores}{Ninguna}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_settings_black_18dp.png}.
+		\UCpaso[\UCsist] accede a la pantalla \hyperref[fig:IU29]{IU29 Mis tareas}.
+        \UCpaso [\UCsist] buscara la lista de tareas en las que el lider o colaborador se encuentren asignado para el proyecto. \label{item:cu29Item1}
+	\end{UCtrayectoria}
+
+%---------------------------------------
+\subsection{Puntos de extensión del caso de uso}
+\UCExtenssionPoint{El lider de proyecto o el colaborador desea reporter sus avances\includegraphics[height=10pt]{./images/iconos/ic_work_black_18dp.png}}{Continua en el paso \ref{item:cu29Item1} del \UCref{CU29}.}{\UCref{CU30}{ Avances de tareas}}
+%-------------------------------------- TERMINA descripción del caso de uso.

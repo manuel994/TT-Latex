@@ -1,0 +1,41 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU10}{Iniciar tarea}{
+		Permite a un colaborador iniciar el reporte del tiempo invertido para resolver sobre una tarea asignada.
+	}
+		\UCitem{Actor}{\hyperlink{Colaborador.}{Colaborador.}}
+		\UCitem{Propósito}{Reportar el tiempo invertido en una tara especifica.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Usuario: lo obtiene el sistema
+		\item Proyecto: lo obtiene el sistema
+		\item Tarea asignada: lo obtiene el sistema
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Tarea iniciada: Lo genera el sistema  
+}
+		\UCitem{Destino}{Tareas.}
+		\UCitem{Precondiciones}{Tener una cuenta creada, tener una sesión iniciada, estar participando como colaborador en un proyecto y tener una tarea asignada.
+}
+		\UCitem{Postcondiciones}{La tarea pasa a estado de iniciada
+ }
+		\UCitem{Errores}{}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+      \UCpaso  Muestra la pantalla principal.
+		\UCpaso[\UCactor]Da click en iniciar tarea en el icono \includegraphics[height=10pt]{./images/iconos/ic_play_circle_filled_black_18dp.png}.
+      \UCpaso  Hace un nuevo registro sobre la hora de inicio de la tarea.
+	\end{UCtrayectoria}
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

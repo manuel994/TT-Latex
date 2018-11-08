@@ -1,0 +1,36 @@
+%====================================================================================
+\begin{UseCase}{CU25}{Registrar relacion de tarea}{
+		Permite al Lider de proyecto de una tarea relacionarla a otra.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{Permite al Lider de proyecto de una tarea relacionarla a otra.}
+		\UCitem{Entradas}{Tipo de relación: selecconada desde select con el catalogo.}
+		\UCitem{Salidas}{Tarea: tarea relacionada a la tarea actual.}
+		\UCitem{Destino}{Pantalla de relacion de tareas}
+		\UCitem{Precondiciones}{se allá selecconado un tipo de relacion para el registro de la relacion con la tarea actual.}
+		\UCitem{Postcondiciones}{tarea relacionada con la actual}
+		\UCitem{Errores}{\begin{itemize}
+			\item Campos obligatorios.
+			\item El tipo de relacion no esta permitida por las fechas registradas para las tareas.
+		\end{itemize}}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso [\UCactor] selecciona un tipo de relación para la tarea que seleccione.
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_add_circle_black_18dp.png}. \label{item:CU25Item1}
+        \UCpaso [\UCsist] verifica que el select tenga una opcion seleccionada. \Trayref{A}
+        \UCpaso [\UCsist] verifica que las fechas de la tarea actual y la tarea seleccionada para relacionar esten permitidas para el tipo de relación seleccionada. \Trayref{B}
+	\end{UCtrayectoria}
+%-------------------------------------------------
+\begin{UCtrayectoriaA}{A}{No se selecciono una opción valida}
+			\UCpaso [\UCsist] Muestra el mensaje 'Campos obligatorios'.
+			\UCpaso [\UCsist] Continua en el paso \ref{item:CU25Item1} del \UCref{CU24}.
+		\end{UCtrayectoriaA}
+		
+		\begin{UCtrayectoriaA}{B}{El tipo de relación no es posible por las fechas de la tareas}
+			\UCpaso [\UCsist] Muestra el mensaje 'El tipo de relacion no esta permitida por las fechas registradas para las tareas.'.
+			\UCpaso [\UCsist] Continua en el paso \ref{item:CU25Item1} del \UCref{CU24}.
+		\end{UCtrayectoriaA}		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

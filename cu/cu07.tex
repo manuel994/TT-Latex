@@ -1,0 +1,59 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU07}{Asignar tarea}{
+		Permite a un usuario la asignación del responsable de una tarea.
+	}
+		\UCitem{Actor}{\hyperlink{Líder de proyecto.}{Líder de proyecto.}}
+		\UCitem{Propósito}{Definir el responsable de una tarea.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Proyecto: Lo obtiene el sistema
+		\item Tarea: Lo obtiene el sistema
+		\item Colaborador: Se selecciona de una lista
+
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Tarea asignada: Lo genera el sistema  
+}
+		\UCitem{Destino}{Pantalla de tareas del proyecto.}
+		\UCitem{Precondiciones}{Haber iniciado sesión, tener un proyecto creado, tener una tarea creada.
+}
+		\UCitem{Postcondiciones}{La tarea queda asignada a un colaborador en el sistema 
+ }
+		\UCitem{Errores}{}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor]Da click en el menú de proyectos.
+       \UCpaso [\UCactor]Da click en el ícono de tareas en la lista de proyectos.
+      \UCpaso  Muestra la pantalla de listado de tareas. 
+      \UCpaso [\UCactor]Da click en el ícono de asignar tarea. 
+      \UCpaso Muestra la pantalla de asignar tarea. \label{asignar}
+      \UCpaso[\UCactor] Selecciona un colaborador de una lista.   \Trayref{A} \Trayref{B} 
+       \UCpaso   Muestra la pantalla del listado de tareas.
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no selecciono ningún colaborador}
+			\UCpaso Muestra mensaje de que no se ha seleccionado ningún colaborador.
+			\UCpaso Continua en el paso \ref{asignar} del \UCref{CU07}.
+		\end{UCtrayectoriaA}
+        
+        
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{B}{El actor presiona el botón de cancelar.}
+			\UCpaso Muestra la pantalla de listado de tareas.
+		\end{UCtrayectoriaA}
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

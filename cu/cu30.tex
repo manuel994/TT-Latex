@@ -1,0 +1,38 @@
+%====================================================================================
+\begin{UseCase}{CU30}{Avances de tareas}{
+		Permite al Lider de proyecto y al colaborador, ver y reportar los avances que tenga en las tareas.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}, \hyperlink{Colaborador}{Colaborador}}
+		\UCitem{Propósito}{permitir al Lider de proyecto y al colaborador, ver y reportar los avances que tenga en las tareas.}
+		\UCitem{Entradas}{Ninguna}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{Pantalla de Mis tareas.}
+		\UCitem{Precondiciones}{la tarea no este finalizada.}
+		\UCitem{Postcondiciones}{Ninguna}
+		\UCitem{Errores}{Ninguna}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_work_black_18dp.png}.
+		\UCpaso[\UCsist] accede a la pantalla \hyperref[fig:IU30]{IU30 Avances de tareas}.
+        \UCpaso [\UCsist] verificara que la tarea no este finalizada \label{item:cu30Item1}
+        \UCpaso [\UCactor] puede reportar sus tareas a traves de los iconos \includegraphics[height=10pt]{./images/iconos/ic_play_circle_filled_black_18dp.png},
+\includegraphics[height=10pt]{./images/iconos/ic_pause_circle_filled_black_18dp.png},
+\includegraphics[height=10pt]{./images/iconos/ic_filter_none_black_18dp.png}.\label{item:cu30Item2}
+	\end{UCtrayectoria}
+
+%---------------------------------------
+	\begin{UCtrayectoriaA}{A}{ La tarea esta finalizada}
+			\UCpaso [\UCpaso] Muestra mensaje 'La tarea ha finalizado no se puede reportar avances'
+			\UCpaso Continua en el paso \ref{item:CU30Item1} del \UCref{CU30}.
+		\end{UCtrayectoriaA}
+
+%---------------------------------------
+\subsection{Puntos de extensión del caso de uso}
+\UCExtenssionPoint{El lider de proyecto o el colaborador desea reporter sus avances\includegraphics[height=10pt]{./images/iconos/ic_play_circle_filled_black_18dp.png}}{Continua en el paso \ref{item:cu30Item2} del \UCref{CU30}.}{\UCref{CU10}{ Iniciar Tarea}}
+
+\UCExtenssionPoint{El lider de proyecto o el colaborador desea pausar la tarea en curso \includegraphics[height=10pt]{./images/iconos/ic_pause_circle_filled_black_18dp}}{Continua en el paso \ref{item:cu30Item2} del \UCref{CU30}.}{\UCref{CU11}{ Pausar Tarea}}
+
+\UCExtenssionPoint{El lider de proyecto o el colaborador desea ver los avances de su commit \includegraphics[height=10pt]{./images/iconos/ic_filter_none_black_18dp.png}}{Continua en el paso \ref{item:cu30Item2} del \UCref{CU30}.}{\UCref{CU31}{ Ver avances commit}}
+%-------------------------------------- TERMINA descripción del caso de uso.

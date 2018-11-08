@@ -1,0 +1,41 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU13}{Ver mis invitaciones}{
+		Permite al líder de proyecto ver el estado de las invitaciones que ha hecho a colaboradores para integrarse a sus proyectos.
+	}
+		\UCitem{Actor}{\hyperlink{Líder de Proyecto.}{Líder de Proyecto.}}
+		\UCitem{Propósito}{Controlar las invitaciones que he realizado a mis colaboradores.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Usuario: lo obtiene el sistema
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Invitaciones: lo genera el sistema  
+}
+		\UCitem{Destino}{Invitaciones.}
+		\UCitem{Precondiciones}{Tener una cuenta creada, tener una sesión iniciada, estar participando como líder en un proyecto
+}
+		\UCitem{Postcondiciones}{
+ }
+		\UCitem{Errores}{}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+      \UCpaso  Muestra la pantalla principal.
+		\UCpaso[\UCactor]Da click en mis invitaciones.
+      \UCpaso  Carga todas las invitaciones de los proyectos en los que es líder de proyecto.
+      \UCpaso  Muestra la pantalla de invitaciones.
+	\end{UCtrayectoria}
+
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

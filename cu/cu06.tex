@@ -1,0 +1,60 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU06}{Responder una invitación}{
+		Permite a un colaborador aceptar o declinar la invitación realizada por el líder de proyecto para participar en un proyecto.
+	}
+		\UCitem{Actor}{\hyperlink{Colaborador}{Colaborador}}
+		\UCitem{Propósito}{Dar a conocer al líder de proyecto la respuesta sobre una invitación.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Token: Lo obtiene el sistema de la  URL.
+		\item Correo: Lo obtiene el sistema
+		\item Proyecto: Lo obtiene el sistema
+		\item Rol: Lo obtiene el sistema
+		\item Respuesta: Se selecciona con un botón
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Colaborador: Lo genera el sistema 
+}
+		\UCitem{Destino}{Pantalla de login.}
+		\UCitem{Precondiciones}{Haber recibido una invitación}
+		\UCitem{Postcondiciones}{El colaborador queda invitado al proyecto
+ }
+		\UCitem{Errores}{El token ha caducado.
+}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor]Da click en el link para responder la invitación.\label{enviar}
+       \UCpaso Muestra la pantalla de inicio de sesión
+      \UCpaso[\UCactor] Ingresa el correo electrónico y la contraseña de su cuenta  \Trayref{A} \label{responder}
+     \UCpaso Verifica que el token no haya caducado
+       \UCpaso   Muestra la pantalla de respuesta de invitación.
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no ingreso los datos requeridos}
+			\UCpaso Muestra mensaje de falta de datos requeridos
+			\UCpaso Continua en el paso \ref{responder} del \UCref{CU06}.
+		\end{UCtrayectoriaA}
+        
+        
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{B}{el token ha caducado}
+			\UCpaso Envía un correo al usuario con un nuevo token y los datos de la invitación
+			\UCpaso Muestra mensaje de que la invitación ha caducado y el usuario debe revisar su correo.
+			\UCpaso Continua en el paso \ref{enviar} del \UCref{CU06}.
+		\end{UCtrayectoriaA}
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

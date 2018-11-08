@@ -1,0 +1,39 @@
+%====================================================================================
+\begin{UseCase}{CU19}{Registrar repositorio proyecto}{
+		Permite al Lider de proyecto dar de alta el reositorio git en donde esten trabajando.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{Permitír al Lider de proyecto registrar el repositorio gt en donde estan versionando el proyecto.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item URL Repositorio: url del repositorio donde esta el proyecto
+		\item Usuario: nombre del usuario del repositorio
+		\item Token: token que identifiacara el repositorio donde se la aloja el proyecto. 
+		\end{itemize}
+}
+		\UCitem{Salidas}{Repositorio: registro del repositorio git del proyecto.}
+		\UCitem{Destino}{Pantalla de gestión de proyectos}
+		\UCitem{Precondiciones}{Que el proyecto no tenga tareas configuradas}
+		\UCitem{Postcondiciones}{proyecto eliminado}
+		\UCitem{Errores}{\begin{itemize}
+		\item El proyecto no se puede eliminar, tiene tareas generadas.
+		\end{itemize}}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_cloud_upload_black_18dp.png}
+        \UCpaso [\UCsist] accede a la pantalla \hyperref[fig:IU19]{IU19 Registrar repositorio proyecto}.
+        \UCpaso [\UCactor] introduce los campos obligatorios.
+        \UCpaso [\UCactor] da click en el botón 'aceptar'.
+        \UCpaso [\UCsist] Verifica que no se hayan omitido campo.         \label{item:CU19Item1}  \Trayref{A}
+        \UCpaso Muestra mensaje de operecion exitosa.
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no ingreso los datos requeridos}
+			\UCpaso Muestra mensaje de falta de datos requeridos
+			\UCpaso Continua en el paso \ref{item:CU19Item1} del \UCref{CU19}.
+		\end{UCtrayectoriaA}
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

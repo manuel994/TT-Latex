@@ -1,0 +1,65 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU08}{Recuperar Contraseña}{
+		Permite a un usuario recuperar su contraseña ingresando su correo electrónico.
+	}
+		\UCitem{Actor}{\hyperlink{Usuario.}{Usuario.}}
+		\UCitem{Propósito}{Recuperar su cuenta.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Correo electrónico: se ingresa desde el teclado
+		\item Nuevo contraseña: se ingresa desde el teclado
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Nueva contraseña asignada: Lo genera el sistema  
+}
+		\UCitem{Destino}{Login.}
+		\UCitem{Precondiciones}{Tener una cuenta creada
+}
+		\UCitem{Postcondiciones}{La contraseña queda restablecida
+ }
+		\UCitem{Errores}{}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+      \UCpaso  Muestra el login.
+		\UCpaso[\UCactor]Da click en el recuperar contraseña.
+		\UCpaso[\UCactor]Ingresa el correo electrónico.\Trayref{A}
+      \UCpaso  Envía un correo electrónico con un token.
+		\UCpaso[\UCactor]Da click en el link para recuperar contraseña. \label{token}
+       \UCpaso   Verifica que el token no haya caducado.\Trayref{B} 
+       \UCpaso   Muestra la pantalla de recuperación de contraseña.
+		\UCpaso[\UCactor]Ingresa su nueva contraseña.\Trayref{C} \label{password}
+       \UCpaso   Muestra la pantalla de login.
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor ingresó un correo que se encuentre registrado en el sistema}
+			\UCpaso Muestra mensaje de que se ha ingresado un correo que no se encuentra registrado
+       \UCpaso   Muestra la pantalla de login.
+            \UCpaso[] Termina el caso de uso.
+		\end{UCtrayectoriaA}
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{B}{El token ha caducado}
+			\UCpaso Envía un correo al usuario con un nuevo token y el link de recuperación contraseña
+			\UCpaso Muestra mensaje de que su token ha caducado y el usuario debe revisar su correo.
+			\UCpaso Continua en el paso \ref{token} del \UCref{CU08}.
+		\end{UCtrayectoriaA}
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{C}{El actor ingresó mal la confirmación de su contraseña}
+			\UCpaso Muestra mensaje de que la confirmación de contraseña no coincide.
+			\UCpaso Continua en el paso \ref{password} del \UCref{CU08}.
+		\end{UCtrayectoriaA}
+        
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

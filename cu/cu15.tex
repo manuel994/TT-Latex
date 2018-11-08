@@ -1,0 +1,59 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU15}{Cambiar Contraseña}{
+		Permite al usuario modificar su contraseña.
+	}
+		\UCitem{Actor}{\hyperlink{Usuario}{Usuario}}
+		\UCitem{Propósito}{Que el usuario pueda modificar su contraseña despues de haber solicitado recuperarla}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Contraseña: se ingresa desde teclado
+		\item Confirmar contraseña: Se ingresa desde el teclado 
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Contraseña: contraseña actualizada}
+		\UCitem{Destino}{Pantalla de Login}
+		\UCitem{Precondiciones}{El usuario tenga un token generado para modificar su contraseña}
+		\UCitem{Postcondiciones}{El usuario tendra su contraseña actualizada}
+		\UCitem{Errores}{Las contraseñas no coinciden}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el enlace que se encuentra en el correo electronico enviado.
+        \UCpaso [\UCsist] accede a la pantalla \hyperref[fig:IU15]{IU15 Cambiar contraseña}. \label{item:CU15Item1}
+		\UCpaso[\UCactor] ingresa los datos en los campos correspondientes. 
+      \UCpaso[\UCactor]   solicita el cambio de su contraseña oprimiendo el botón aceptar.
+		\UCpaso Verifica que no se hayan omitido campos  \Trayref{A}.
+       \UCpaso  Verifica que no exista una cuenta asociada al correo 	\Trayref{B}.
+       \UCpaso Muestra la pantalla principal
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no ingreso los datos requeridos}
+			\UCpaso Muestra mensaje de falta de datos requeridos
+			\UCpaso Continua en el paso \ref{item:CU15Item1} del \UCref{CU15}.
+		\end{UCtrayectoriaA}
+        
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{B}{la contraseñas introducidas no coinciden}
+			\UCpaso Muestra el mensaje \MSGref{MSG12}{Las contraseñas no coinciden}
+			\UCpaso Muestra en el campo de confirmacion de password
+            \UCpaso[] Termina el caso de uso.
+		\end{UCtrayectoriaA}
+		
+
+
+		
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

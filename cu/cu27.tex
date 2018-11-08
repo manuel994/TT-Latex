@@ -1,0 +1,22 @@
+%====================================================================================
+\begin{UseCase}{CU27}{Ver diagrama de gantt}{
+		Permite al Lider de proyecto ver el diagrama de gantt conteniente de las tareas de proyecto.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{permitir al Lider de proyecto ver el diagrama de gantt conteniente de las tareas de proyecto.}
+		\UCitem{Entradas}{Ninguna}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{Pantalla de configuración de tareas.}
+		\UCitem{Precondiciones}{tener tareas registradas.}
+		\UCitem{Postcondiciones}{generación del diagrama de gantt}
+		\UCitem{Errores}{Ninguna}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en la pestaña 'Gantt' de la pantalla \hyperref[fig:IU27]{IU27 Ver diagrama de gantt}.
+        \UCpaso [\UCsist] buscara la lista de tareas registradas para el proyecto.
+        \UCpaso [\UCsist]  generara el diagrama de gantt con todas las tareas registradas, así como sus relaciones.
+	\end{UCtrayectoria}
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

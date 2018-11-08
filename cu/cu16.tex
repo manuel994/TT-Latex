@@ -1,0 +1,54 @@
+%======================================================================================
+\begin{UseCase}{CU16}{Editar Proyecto}{
+		Permite al Lider de proyecto modificar los parametros de información del proyecto.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{Permitír al Lider de proyecto modificar la información de coniguración del proyecto}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Nombre: se ingresa desde teclado
+		\item Fecha de inicio: Se ingresa desde el teclado
+		\item Fecha de termino: Se ingresa desde el teclado 
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Proyecto: modificacion de los parametros de cnfiguración del proyecto.}
+		\UCitem{Destino}{Pantalla de gestión de proyectos}
+		\UCitem{Precondiciones}{Que el proyecto no este finalizado}
+		\UCitem{Postcondiciones}{La configuracion del proyecto sera modificada}
+		\UCitem{Errores}{}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_create_black_18dp.png}
+        \UCpaso [\UCsist] accede a la pantalla \hyperref[fig:IU16]{IU16 Editar Proyecto}. \label{item:CU16Item1}
+		\UCpaso[\UCactor] ingresa los datos en los campos correspondientes. 
+      \UCpaso[\UCactor]   solicita el cambio de su contraseña oprimiendo el botón aceptar.
+		\UCpaso Verifica que no se hayan omitido campos  \Trayref{A}.
+       \UCpaso  Verifica que no exista una cuenta asociada al correo 	\Trayref{B}.
+       \UCpaso Verifica que el nombre introducido no exista ya \Trayref{C} 
+       \UCpaso Muestra la pantalla principal
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no ingreso los datos requeridos}
+			\UCpaso Muestra mensaje de falta de datos requeridos
+			\UCpaso Continua en el paso \ref{item:CU16Item1} del \UCref{CU16}.
+		\end{UCtrayectoriaA}
+        
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{B}{la contraseñas introducidas no coinciden}
+			\UCpaso Muestra el mensaje \MSGref{MSG12}{Las contraseñas no coinciden}
+			\UCpaso Muestra en el campo de confirmacion de password
+            \UCpaso[] Termina el caso de uso.
+		\end{UCtrayectoriaA}
+%---------------------------------------
+		\begin{UCtrayectoriaA}{C}{El nombre de proyecto ya existe}
+			\UCpaso Muestra el mensaje  \MSGref{MSG5}{Nombre ya existente}, debajo del campo "Nombre".
+			\UCpaso[] Continua en el paso \ref{item:CU16Item1} del \UCref{CU16}.
+		\end{UCtrayectoriaA}
+
+
+		
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

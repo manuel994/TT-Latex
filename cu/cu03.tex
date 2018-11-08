@@ -1,0 +1,57 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU03}{Crear Proyecto}{
+		Permite a un usuario la creación de un nuevo proyecto
+	}
+		\UCitem{Actor}{\hyperlink{Líder de proyecto}{Líder de proyecto}}
+		\UCitem{Propósito}{Crear un proyecto.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Líder de proyecto: Lo obtiene el sistema
+		\item Nombre: Se ingresa desde el teclado
+		\item Fecha de inicio: Se selecciona de un calendario
+		\item Fecha de térmico: Se selecciona de un calendario
+		\item Descripción: Se ingresa desde el teclado
+
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Proyecto registrado: Lo genera el sistema .}
+		\UCitem{Destino}{Pantalla de listado de proyectos}
+		\UCitem{Precondiciones}{Haber iniciado sesión}
+		\UCitem{Postcondiciones}{El proyecto queda registrado en el sistema}
+		\UCitem{Errores}{La fecha de término es anterior a la fecha de inicio
+}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el menú de proyectos.
+		\UCpaso[\UCactor]Da click en el botón registrar proyecto.
+       	\UCpaso Muestra la pantalla de registrar proyecto.\label{Crear}
+        \UCpaso[\UCactor] Ingresa el nombre, fecha de inicio, fecha de término y descripción.  \Trayref{A}
+        \UCpaso Verifica que la fecha de inicio sea anterior a la fecha de fin. \Trayref{B}
+       \UCpaso  Muestra la pantalla de mis proyectos
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no ingreso los datos requeridos}
+			\UCpaso Muestra mensaje de falta de datos requeridos
+			\UCpaso Continua en el paso \ref{Crear} del \UCref{CU03}.
+		\end{UCtrayectoriaA}
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{B}{ El actor ingresó una fecha de inicio inválida}
+			\UCpaso Muestra mensaje de que las fechas no son válidas.
+			\UCpaso Continua en el paso \ref{Crear} del \UCref{CU03}.
+		\end{UCtrayectoriaA}
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

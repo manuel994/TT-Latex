@@ -1,0 +1,74 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU05}{Invitar un colaborador}{
+		Permite a un líder de proyecto invitar a un colaborador a participar en un proyecto creado.
+	}
+		\UCitem{Actor}{\hyperlink{Líder de proyecto}{Líder de proyecto}}
+		\UCitem{Propósito}{El líder de proyecto puede invitar un colaborador a participar en un proyecto.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Correo: Se ingresa desde el teclado
+		\item Proyecto: Se selecciona de una lista
+		\item Rol: Se selecciona de una lista.
+
+
+
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Colaborador invitado: Lo genera el sistema, Email de invitación: Lo genera el sistema 
+}
+		\UCitem{Destino}{Pantalla de colaboradores.}
+		\UCitem{Precondiciones}{Haber iniciado sesión y tener un proyecto creado
+}
+		\UCitem{Postcondiciones}{El colaborador queda invitado al proyecto
+ }
+		\UCitem{Errores}{El usuario ya existe en el proyecto con ese rol.
+}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en la opción mis invitaciones en el menú de colaboradores. 
+		\UCpaso[\UCactor] Da click en la el botón invitar colaborador.
+        \UCpaso[\UCactor]  Ingresa el correo del colaborador \label{crear}
+       \UCpaso[\UCactor] Selecciona de una lista el proyecto.
+       \UCpaso[\UCactor]  Selecciona de una lista el rol.
+      \UCpaso[\UCactor]   Solicita invitar al colaborador mediante el botón invitar.  
+      \UCpaso[\UCactor] Verifica que no se hayan omitido campos   \Trayref{A}
+     \UCpaso[\UCactor] Verifica que exista una cuenta asociada al correo\Trayref{B}
+       \UCpaso[\UCactor]Verifica que el colaborador no esté participando actualmente en el proyecto con el mismo rol\Trayref{C}
+      \UCpaso  Envía un correo con un token y la información de la invitación
+      
+       \UCpaso   Muestra la pantalla de  colaboradores invitados.
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no ingreso los datos requeridos}
+			\UCpaso Muestra mensaje de falta de datos requeridos
+			\UCpaso Continua en el paso \ref{crear} del \UCref{CU05}.
+		\end{UCtrayectoriaA}
+        
+        
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{B}{El correo ingresado no está asociado a una cuenta}
+			\UCpaso Hace un preregistro del colaborador
+			\UCpaso Envía un correo con la invitación al correo ingresado.
+            \UCpaso[] Termina el caso de uso.
+		\end{UCtrayectoriaA}
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{C}{El correo ingresado no está asociado a una cuenta. }
+			\UCpaso Muestra mensaje de que el colaborador ya se encuentra participando en el proyecto.
+            \UCpaso[] Termina el caso de uso.
+		\end{UCtrayectoriaA}
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

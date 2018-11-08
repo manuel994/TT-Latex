@@ -1,0 +1,40 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU09}{Ver Proyectos }{
+    	Permite a un usuario ver los proyectos en los que participa como líder y como colaborador.
+	}
+		\UCitem{Actor}{\hyperlink{Líder de Proyecto, Colaborador.}{Líder de proyecto, Colaborador.}}
+		\UCitem{Propósito}{Visualiza todos los proyectos en el que el actor participa.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Usuario: lo obtiene el sistema
+		\end{itemize}
+}
+		\UCitem{Salidas}{Proyectos: los obtiene el sistema
+}
+		\UCitem{Destino}{Mis Proyectos.}
+		\UCitem{Precondiciones}{Tener una cuenta creada, haber iniciado sesión, tener participación en proyectos.
+}
+		\UCitem{Postcondiciones}{Muestra todos los proyectos.
+ }
+		\UCitem{Errores}{}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+      \UCpaso  Muestra la pantalla principal.
+		\UCpaso[\UCactor]Da click en la menú de mis proyectos
+      \UCpaso  Muestra los proyectos en forma de lista.
+	\end{UCtrayectoria}
+        
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

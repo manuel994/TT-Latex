@@ -1,0 +1,30 @@
+%======================================================================================
+\begin{UseCase}{CU17}{Información del proyecto}{
+		Permite al Lider de proyecto visualizar la información general del proyecto.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{Permitír al Lider de proyecto ver la información general del proyecto}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Ninguna 
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{Pantalla de gestión de proyectos}
+		\UCitem{Precondiciones}{Ninguna}
+		\UCitem{Postcondiciones}{Ninguna}
+		\UCitem{Errores}{Ningunó}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_visibility_black_18dp.png}
+        \UCpaso [\UCsist] accede a la pantalla \hyperref[fig:IU17]{IU17 Información del proyecto}. \label{item:CU17Item1} \Trayref{A}.
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor da click en el boton 'regresar'}
+			\UCpaso [\UCsist] accde a la pantalla \hyperref[fig:IU09]{IU09 Gestionar Proyectos}.
+		\end{UCtrayectoriaA}		
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

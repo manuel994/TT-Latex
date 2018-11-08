@@ -1,0 +1,40 @@
+%======================================================================================
+\begin{UseCase}{CU18}{Eliminar proyecto}{
+		Permite al Lider de proyecto eliminar un proyecto.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{Permitír al Lider de proyecto eliminar un proyecto}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Ninguna 
+		\end{itemize}
+}
+		\UCitem{Salidas}{Proyecto: eliminacion del proyecto}
+		\UCitem{Destino}{Pantalla de gestión de proyectos}
+		\UCitem{Precondiciones}{Que el proyecto no tenga tareas configuradas}
+		\UCitem{Postcondiciones}{proyecto eliminado}
+		\UCitem{Errores}{\begin{itemize}
+		\item El proyecto no se puede eliminar, tiene tareas generadas.
+		\end{itemize}}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_delete_black_18dp.png}
+        \UCpaso [\UCsist] muestra diálogo con el mensaje '¿Desea eliminar el proyecto seleccionado?'.
+        \UCpaso [\UCactor] Da click en el botón sí. \Trayref{A}
+        \UCpaso [\UCsist] Verifica que no existan tareas creadas para el proyecto.\Trayref{B}
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor da click en el boton 'No'}
+			\UCpaso [\UCsist] Cierra el cuadro de diálogo.
+		\end{UCtrayectoriaA}
+		
+%--------------------------------------
+		\begin{UCtrayectoriaA}{B}{ El proyecto tiene tareas generadas}
+			\UCpaso [\UCsist] Cierra el cuadro de diálogo.
+			\UCpaso [\UCsist] Muestra el mensaje \MSGref{MSG7}{El proyecto tiene tareas generadas}
+		\end{UCtrayectoriaA}		
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

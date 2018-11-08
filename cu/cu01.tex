@@ -1,0 +1,61 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+% 
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+%--------------------------------------
+	\begin{UseCase}{CU01}{Registro de usuario}{
+		Permite a un usuario registrarse en el sistema.
+	}
+		\UCitem{Actor}{\hyperlink{Usuario}{Usuario}}
+		\UCitem{Propósito}{Que el usuario pueda quedar registrado en el sistema.}
+		\UCitem{Entradas}{\begin{itemize}
+		\item Nombre: Se ingresa desde el teclado
+		\item Apellidos: Se ingresa desde el teclado 
+		\item Correo: Se ingresa desde el teclado 
+		\item Contraseña: Se ingresa desde el teclado
+		\end{itemize}
+.}
+		\UCitem{Salidas}{Usuario registrado: Lo genera el sistema.}
+		\UCitem{Destino}{Pantalla de Login}
+		\UCitem{Precondiciones}{El usuario no este registrado en el sistema.}
+		\UCitem{Postcondiciones}{El usuario queda registrado en el sistema}
+		\UCitem{Errores}{Ya hay un usuario registrado con ese correo electrónico}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en crear cuenta en la pantalla de inicio de sesión  .
+        \UCpaso El sistema muestra la pantalla de registro.
+		\UCpaso[\UCactor] Ingresa el nombre, apellidos, correo electrónico y la contraseña.
+      \UCpaso[\UCactor]   Solicita registrar el usuario mediante el botón registrar.
+		\UCpaso Verifica que no se hayan omitido campos  \Trayref{A}.
+       \UCpaso  Verifica que no exista una cuenta asociada al correo 	\Trayref{B}.
+       \UCpaso Muestra la pantalla principal
+	\end{UCtrayectoria}
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no ingreso los datos requeridos}
+			\UCpaso Muestra mensaje de falta de datos requeridos
+			\UCpaso Continua en el paso \ref{CU01 Registro de usuario} del \UCref{CU01}.
+		\end{UCtrayectoriaA}
+        
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{B}{El actor ingreso un correo que ya está asociada a una cuenta}
+			\UCpaso Muestra mensaje de que el correo ya está asociado a una cuenta
+			\UCpaso Muestra la pantalla de inicio de sesión
+            \UCpaso[] Termina el caso de uso.
+		\end{UCtrayectoriaA}
+		
+
+
+		
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

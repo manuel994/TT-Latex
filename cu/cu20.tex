@@ -1,0 +1,44 @@
+%====================================================================================
+\begin{UseCase}{CU20}{Configuración de tareas}{
+		Permite al Lider de proyecto configurar las tareas que se realizaranen el proyecto, poder visuizaras en un diagrama de gantt y gestionar los avances atraves de un diagrama de representacion de avances por tareas.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{Permite al Lider de proyecto configurar las tareas que se realizaranen el proyecto, poder visuizaras en un diagrama de gantt y gestionar los avances atraves de un diagrama de representacion de avances por tareas.}
+		\UCitem{Entradas}{Ninguna}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{Pantalla de configuracion de tareas}
+		\UCitem{Precondiciones}{Que el proyecto no este finalizado}
+		\UCitem{Postcondiciones}{Ningunó}
+		\UCitem{Errores}{Ningunó}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_settings_black_18dp.png}
+        \UCpaso [\UCsist] accede a la pantalla \hyperref[fig:IU20]{IU20 Configuración de tareas}.
+        \UCpaso [\UCactor] puede gestionar la tareas atravez de la pestaña de 'Tareas' y se pueden gestinar atravez del boton,'Nueva tarea' y los iconos \includegraphics[height=10pt]{./images/iconos/ic_input_black_18dp.png},\includegraphics[height=10pt]{./images/iconos/ic_create_black_18dp.png},\includegraphics[height=10pt]{./images/iconos/ic_person_add_black_18dp.png},
+\includegraphics[height=10pt]{./images/iconos/ic_visibility_black_18dp.png},
+\includegraphics[height=10pt]{./images/iconos/ic_delete_black_18dp.png} \label{item:cu20Item1}       
+        
+	\end{UCtrayectoria}
+%-------------------------------------------------
+\subsection{Puntos de extensión del caso de uso}
+\UCExtenssionPoint{El lider de proyecto desea relacionar las tareas presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_input_black_18dp.png}}{Continua en el paso \ref{item:cu20Item1} del \UCref{CU20}.}{\UCref{CU21}{ Relacionar Tareas}}
+
+\UCExtenssionPoint{El lider de proyecto desea asignar colaboradores a la tarea presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_person_add_black_18dp.png}}{Continua en el paso \ref{item:cu20Item1} del \UCref{CU20}.}{\UCref{CU21}{ Relacionar Tareas}}
+
+\UCExtenssionPoint{El lider de proyecto desea editar los datos de la tarea presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_create_black_18dp.png}}{Continua en el paso \ref{item:cu20Item1} del \UCref{CU22}.}{\UCref{CU22}{ Editar Tarea}}
+
+\UCExtenssionPoint{El lider de proyecto desea ver los datos generales de la tarea presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_visibility_black_18dp.png}}{Continua en el paso \ref{item:cu20Item1} del \UCref{CU22}.}{\UCref{CU23}{ Visualizar Datos Tareas}}
+
+\UCExtenssionPoint{El lider de proyecto desea eliminar la tarea presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_delete_black_18dp.png}}{Continua en el paso \ref{item:cu20Item1} del \UCref{CU22}.}{\UCref{CU24}{ Eliminar la tarea}}
+
+
+%--------------------------------------		
+		\begin{UCtrayectoriaA}{A}{ El actor no ingreso los datos requeridos}
+			\UCpaso Muestra mensaje de falta de datos requeridos
+			\UCpaso Continua en el paso \ref{item:CU19Item1} del \UCref{CU19}.
+		\end{UCtrayectoriaA}
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

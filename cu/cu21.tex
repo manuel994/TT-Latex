@@ -1,0 +1,32 @@
+%====================================================================================
+\begin{UseCase}{CU21}{Relacionar Tareas}{
+		Permite al Lider de proyecto relacionar las tareas configuradas para el proyeto, con el fin de ver que tareas dependen otras.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{Permite al Lider de proyecto relacionar las tareas configuradas para el proyeto, con el fin de ver que tareas dependen otras.}
+		\UCitem{Entradas}{Tpo de relación: es el tipo de relacion que se tendra entre tareas, se selecciona de un catalogo de estas.}
+		\UCitem{Salidas}{Relación entre una tarea y otra}
+		\UCitem{Destino}{Pantalla de relación de tareas}
+		\UCitem{Precondiciones}{Que existan tareas creadas para el proyecto}
+		\UCitem{Postcondiciones}{Creación de la relación entre tareas}
+		\UCitem{Errores}{\begin{itemize}
+			\item El tipo de relacion no es posible: las fechas entre ellas difieren del tipo seleccionado.
+			\item Campos obligatorios.	
+		\end{itemize}}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en el icono \includegraphics[height=10pt]{./images/iconos/ic_input_black_18dp.png}
+        \UCpaso [\UCsist] accede a la pantalla \hyperref[fig:IU21]{IU21 Relacionar Tareas}.
+        \UCpaso [\UCactor] puede agregar la relacion entre tareas a traves del icono \includegraphics[height=10pt]{./images/iconos/ic_add_circle_black_18dp.png} y puede eliminar la relacion entre tareas presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_remove_circle_black_18dp.png} \label{item:cu21Item1}       
+        
+	\end{UCtrayectoria}
+%-------------------------------------------------
+\subsection{Puntos de extensión del caso de uso}
+\UCExtenssionPoint{El lider de proyecto desea relacionar las tareas presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_add_circle_black_18dp.png}}{Continua en el paso \ref{item:cu21Item1} del \UCref{CU21}.}{\UCref{CU25}{ Registrar relacion de tarea}}
+
+\UCExtenssionPoint{El lider de proyecto desea eliminar la relacion entre tareas presionando el icono \includegraphics[height=10pt]{./images/iconos/ic_remove_circle_black_18dp.png}}{Continua en el paso \ref{item:cu21Item1} del \UCref{CU21}.}{\UCref{CU26}{ Remover relación de tarea}}
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

@@ -1,0 +1,22 @@
+%====================================================================================
+\begin{UseCase}{CU28}{Ver estadisticas de avances de las tareas}{
+		Permite al Lider de proyecto ver las estadistias de los avances de las tareas registradas en el proyecto.
+	}
+		\UCitem{Actor}{\hyperlink{LiderProyecto}{Lider de proyecto}}
+		\UCitem{Propósito}{permitir al Lider de proyecto ver las estadistias de los avances de las tareas registradas en el proyecto.}
+		\UCitem{Entradas}{Ninguna}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{Pantalla de configuración de tareas.}
+		\UCitem{Precondiciones}{tener tareas registradas.}
+		\UCitem{Postcondiciones}{generación del diagrama de gantt}
+		\UCitem{Errores}{Ninguna}
+		\UCitem{Observaciones}{}
+	\end{UseCase}
+%--------------------------------------
+	\begin{UCtrayectoria}{Principal}
+		\UCpaso[\UCactor] Da click en la pestaña 'Estadisticas' de la pantalla \hyperref[fig:IU28]{IU20 Configuración de tareas}.
+        \UCpaso [\UCsist] buscara la lista de tareas registradas para el proyecto.
+        \UCpaso [\UCsist]  generara los diagramas de reportes de avances de tareas.
+	\end{UCtrayectoria}
+		
+%-------------------------------------- TERMINA descripción del caso de uso.
